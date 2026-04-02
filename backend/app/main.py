@@ -31,6 +31,6 @@ async def health_check():
 from app.routers import prediction
 app.include_router(prediction.router)
 
-# Chat router — will be added in Phase 3
-# from app.routers import chat
-# app.include_router(chat.router)
+# Chat router — enabled in Phase 3
+from app.routers import chat
+app.include_router(chat.router)
