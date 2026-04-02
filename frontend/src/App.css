@@ -7,7 +7,6 @@
   gap: 2rem;
   min-height: 100vh;
   box-sizing: border-box;
-  width: 100%;
 }
 
 .app-header {
@@ -16,15 +15,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  border-radius: 16px;
 }
 
 .app-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
 }
 
 .main-content {
@@ -34,8 +34,45 @@
   flex: 1;
 }
 
+.form-section {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--danger-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  border-radius: 12px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .results-grid {
+    grid-template-columns: 350px 1fr;
+    align-items: start;
+  }
+}
+
 @media (max-width: 768px) {
   .app-container {
     padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .app-header h1 {
+    font-size: 1.8rem;
   }
 }
