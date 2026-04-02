@@ -1,7 +1,7 @@
-import { TrendingUp, TrendingDown, AlertCircle } from 'lucide-react';
+import { TrendingUp, TrendingDown, AlertCircle, RefreshCw } from 'lucide-react';
 import './PredictionResult.css';
 
-export default function PredictionResult({ result }) {
+export default function PredictionResult({ result, onRetrain, isRetraining }) {
   if (!result) return null;
 
   const { ticker, prediction, probability, timestamp } = result;
@@ -34,6 +34,18 @@ export default function PredictionResult({ result }) {
             ></div>
           </div>
         </div>
+      </div>
+
+      <div className="retrain-section">
+        <button 
+          className="retrain-btn" 
+          onClick={onRetrain} 
+          disabled={isRetraining}
+          title="Force model to learn from the latest market data"
+        >
+          <RefreshCw size={14} className={isRetraining ? "spinning" : ""} />
+          {isRetraining ? "Retraining Model..." : "Retrain latest data"}
+        </button>
       </div>
 
       <div className="disclaimer">

@@ -12,6 +12,33 @@ function App() {
   const [error, setError] = useState(null);
   const [predictionData, setPredictionData] = useState(null);
   const [chartData, setChartData] = useState(null);
+  const [isRetraining, setIsRetraining] = useState(false);
+
+  const handleRetrain = async (ticker, timeframe) => {
+    setIsRetraining(true);
+    setError(null);
+    try {
+      const res = await fetch(`http://localhost:8000/api/retrain`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ticker, timeframe })
+      });
+      if (!res.ok) {
+        let errMsg = 'Failed to retrain model';
+        try {
+          const errorData = await res.json();
+          if (errorData.detail) errMsg = errorData.detail;
+        } catch(e) {}
+        throw new Error(errMsg);
+      }
+      // Re-fetch prediction automatically
+      await handlePredict(ticker, timeframe);
+    } catch (err) {
+      setError(`Retrain Error: ${err.message}`);
+    } finally {
+      setIsRetraining(false);
+    }
+  };
 
   const handlePredict = async (ticker, timeframe) => {
     setLoading(true);
@@ -83,7 +110,11 @@ function App() {
           <div className="results-grid">
             {predictionData && (
               <div className="prediction-section">
-                <PredictionResult result={predictionData} />
+                <PredictionResult 
+                  result={predictionData} 
+                  onRetrain={() => handleRetrain(predictionData.ticker, predictionData.timeframe)}
+                  isRetraining={isRetraining}
+                />
               </div>
             )}
             
