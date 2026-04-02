@@ -21,7 +21,7 @@
 **Deliverable**: API endpoint `POST /api/predict` that accepts a ticker + timeframe and returns a prediction JSON response.
 
 ### Phase 2: Frontend Dashboard & Visualization
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Build the React frontend with a modern, responsive dashboard. Includes ticker input, timeframe selector, prediction display with confidence, interactive price chart, and model accuracy metrics.
 **Requirements**: REQ-08, REQ-09, REQ-10, REQ-15, NFR-01
 **Deliverable**: Fully functional prediction UI connected to the backend API.
