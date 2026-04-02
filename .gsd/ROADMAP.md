@@ -27,7 +27,7 @@
 **Deliverable**: Fully functional prediction UI connected to the backend API.
 
 ### Phase 3: Education Chatbot
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Integrate the Gemini API to power a conversational education chatbot. Users can ask stock market questions and receive beginner-friendly answers. Chatbot is scoped to finance/investing topics only.
 **Requirements**: REQ-11, REQ-12
 **Deliverable**: Chat panel in the dashboard with streaming AI responses.
