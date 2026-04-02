@@ -18,7 +18,8 @@ function App() {
     setIsRetraining(true);
     setError(null);
     try {
-      const res = await fetch(`http://localhost:8000/api/retrain`, {
+      const apiUrl = import.meta.env.VITE_API_URL || '/api';
+      const res = await fetch(`${apiUrl}/retrain`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ticker, timeframe })
@@ -47,7 +48,8 @@ function App() {
     setChartData(null);
 
     try {
-      const res = await fetch(`http://localhost:8000/api/predict`, {
+      const apiUrl = import.meta.env.VITE_API_URL || '/api';
+      const res = await fetch(`${apiUrl}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ticker, timeframe })

@@ -29,7 +29,8 @@ export default function ChatPanel({ isOpen, onClose }) {
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://localhost:8000/api/chat', {
+      const apiUrl = import.meta.env.VITE_API_URL || '/api';
+      const res = await fetch(`${apiUrl}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: newMessages })
