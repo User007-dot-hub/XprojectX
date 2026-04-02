@@ -1,0 +1,122 @@
+.prediction-result {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.result-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.prediction-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 16px;
+  min-width: 120px;
+  background: rgba(0,0,0,0.2);
+}
+
+.prediction-badge.up {
+  color: var(--success-color);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.prediction-badge.down {
+  color: var(--danger-color);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.direction {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.confidence-meter {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.confidence-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.confidence-label span:last-child {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-success { background-color: var(--success-color); }
+.bg-danger { background-color: var(--danger-color); }
+
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.disclaimer-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimer p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .result-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
