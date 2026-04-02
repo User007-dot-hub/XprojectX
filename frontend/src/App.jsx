@@ -2,10 +2,12 @@ import { useState } from 'react';
 import PredictionForm from './components/PredictionForm';
 import PredictionResult from './components/PredictionResult';
 import PriceChart from './components/PriceChart';
-import { AlertCircle } from 'lucide-react';
+import ChatPanel from './components/ChatPanel';
+import { AlertCircle, MessageCircle } from 'lucide-react';
 import './App.css';
 
 function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [predictionData, setPredictionData] = useState(null);
@@ -93,6 +95,12 @@ function App() {
           </div>
         )}
       </main>
+
+      <button className="fab-button" onClick={() => setIsChatOpen(true)}>
+        <MessageCircle size={24} />
+      </button>
+
+      <ChatPanel isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 }
